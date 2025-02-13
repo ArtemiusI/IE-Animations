@@ -1,0 +1,25 @@
+BACKUP ~weidu_external/artisan_animations/backup~
+AUTHOR ~The Artisan~
+VERSION ~1.0~
+ALWAYS
+  INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+END
+LANGUAGE ~English~ ~english~ ~%MOD_FOLDER%/english/setup.tra~
+
+BEGIN ~Artisan's Animations~
+
+///////////////////ANIMATIONS
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY anims_Exxx BEGIN
+    ~intellect_devourer~ => ~C0_INTELLECT_DEVOURER~
+  END
+  ACTION_PHP_EACH anims_Exxx AS folder => symbol BEGIN
+    ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bmp~ BEGIN
+      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+    END
+    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xE000 RET slot END
+    LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+    COPY ~%MOD_FOLDER%/animations/%folder%/Exxx.ini~ ~override/%hexNumber%.ini~
+    OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
+    APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
+END
