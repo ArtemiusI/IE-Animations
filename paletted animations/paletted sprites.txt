@@ -1,0 +1,21 @@
+Low quality steps to paletted sprites:
+
+1. Import models to Blender (I used NWN models with Beamdog HD pack)
+2. Edit textures using GIMP, changing colors according to IE palette designations: e.g.
+   - To designate major color, select the desired textures and adjust the Color Balance of shadows, midtones and highlights, changing the magenta level all the way to the maximum
+   - Do the same with other colors:
+   - Minor color: cyan
+   - Skin color: yellow
+   - Leather color: red
+   - Hair color: green
+   - Armor color: blue
+   - Metal color: grey
+3. Render animations
+4. Add the file-bioplt.py plug-in into GIMP.
+5. Import frames into GIMP as layers.
+6. Open Script-Fu -> MHL-Colour Exchange on All Layers. From colour: 000000 - To colour: ff6597. This adjusts the shadow to transparent color in-game.
+7. Convert the layers to indexed with Image -> Mode -> Indexed... Set Colourmap -> Use custom palette -> sprites.pal
+8. Convert the layers back to RGB with Image -> Mode - > RGB
+9. Now convert the layers to indexed again but this time, Use custom palette -> bgpalette.pal
+10. Export layers.
+11. Convert images to BAM.
