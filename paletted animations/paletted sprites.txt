@@ -16,6 +16,6 @@ Low quality steps to paletted sprites:
 6. Open Script-Fu -> MHL-Colour Exchange on All Layers. From colour: 000000 - To colour: ff6597. This adjusts the shadow to transparent color in-game.
 7. Convert the layers to indexed with Image -> Mode -> Indexed... Set Colourmap -> Use custom palette -> sprites.pal
 8. Convert the layers back to RGB with Image -> Mode - > RGB
-9. Now convert the layers to indexed again but this time, Use custom palette -> bgpalette.pal
+9. Now convert the layers to indexed again but this time, Use custom palette -> bgpalette.pal. MAKE SURE to set Color dithering to Floyd-Steinberg (normal)
 10. Export layers.
 11. Convert images to BAM.
